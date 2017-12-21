@@ -63,56 +63,91 @@ The built-in User model has the following ACL:
 ```javascript
 {
   "name": "User",
-  "properties": {
-    ...
-    "acls": [{
+  ...
+  "acls": [
+    {
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
-    }, {
+    },
+    {
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "ALLOW",
       "property": "create"
-    }, {
+    },
+    {
       "principalType": "ROLE",
       "principalId": "$owner",
       "permission": "ALLOW",
       "property": "deleteById"
-    }, {
+    },
+    {
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "ALLOW",
       "property": "login"
-    }, {
+    },
+    {
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "ALLOW",
       "property": "logout"
-    }, {
+    },
+    {
       "principalType": "ROLE",
       "principalId": "$owner",
       "permission": "ALLOW",
       "property": "findById"
-    }, {
+    },
+    {
       "principalType": "ROLE",
       "principalId": "$owner",
       "permission": "ALLOW",
-      "property": "updateAttributes"
-    }, {
+      "property": "patchAttributes"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "replaceById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "verify",
+      "accessType": "EXECUTE"
+    },
+    {
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "ALLOW",
       "property": "confirm"
-    }, {
+    },
+    {
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "ALLOW",
       "property": "resetPassword",
       "accessType": "EXECUTE"
-    }],
-    //...
-  }
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "changePassword",
+      "accessType": "EXECUTE"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "setPassword",
+      "accessType": "EXECUTE"
+    }
+  ],
+  //...
 }
 ```
 
